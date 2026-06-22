@@ -16,7 +16,22 @@ recognition.addEventListener('result', (e) => {
 
     console.log('confidence: ' + e.results[0][0].confidence);
 
-    socket.emit('Chat Message', text);
+    socket.emit('chat message', text);
+});
+
+socket.on('Bot Reply', (replyText) => {
+    document.querySelector('.output-bot').textContent = replyText;
+
+    const synth = window.speechSynthesis;
+    const utterance = new SpeechSynthesisUtterance();
+    utterance.text = replyText;
+    synth.speak(utterance);
+});
+
+recognition.addEventListener('result', (e) => {
+    let last = e.results.length - 1;
+    let text = e.results[last][0].transcript;
+    document.querySelector('.output-you').textContent = text;
 });
 
 

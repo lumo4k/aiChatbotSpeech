@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -11,8 +12,10 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "apiai": "^4.0.3",
+    "@google-cloud/dialogflow": "^7.6.2",
+    "dotenv": "^17.4.2",
     "express": "^5.2.1",
-    "socket.io": "^4.8.3"
+    "socket.io": "^4.8.3",
+    "uuid": "^14.0.1"
   }
 }
